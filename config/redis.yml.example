@@ -1,0 +1,3 @@
+host:     "localhost"
+database: 0
+port:     6379

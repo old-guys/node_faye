@@ -1,0 +1,52 @@
+upstream node_faye_backend {
+  server 127.0.0.1:9991 max_fails=3 fail_timeout=5 weight=10;
+  server 127.0.0.1:9992 max_fails=3 fail_timeout=5 weight=10;
+  server 127.0.0.1:9993 max_fails=3 fail_timeout=5 weight=10;
+  server 127.0.0.1:9994 max_fails=3 fail_timeout=5 weight=10;
+}
+
+server {
+  listen 9990 ssl;
+  server_name ikcrm.com e.ikcrm.com faye.ikcrm.com qq.ikcrm.com;
+
+  ssl                  on;
+  ssl_certificate      /usr/local/nginx/config/server.crt;
+  ssl_certificate_key  /usr/local/nginx/config/server.key;
+
+  root /dyne/apps/node_faye/current/public;
+
+  # individual nginx logs for this ikcrm_www vhost
+  access_log  /var/log/nginx/node_faye_access.log;
+  error_log   /var/log/nginx/node_faye_error.log;
+
+  try_files $uri/index.html $uri @backend;
+
+  gzip on;
+  gzip_min_length 1000;
+  gzip_http_version 1.0;
+  gzip_disable "MSIE [1-6].";
+  gzip_proxied expired no-cache no-store private auth;
+  gzip_types application/javascript application/x-javascript text/javascript;
+
+  location ^~ /faye/client.js/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
+
+  location @backend {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://node_faye_backend;
+
+    # WebSocket support (nginx 1.4)
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+  }
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 4G;
+  keepalive_timeout 10;
+}

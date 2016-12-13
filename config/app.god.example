@@ -1,0 +1,21 @@
+APP_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+
+4.times {|i|
+  port = 9991 + i
+  God.watch do |w|
+    w.dir = "#{APP_ROOT}"
+    w.log = "#{APP_ROOT}/log/god.log"
+
+    w.group = "node_faye_production"
+    w.name = "node_faye_production_#{i}"
+    # w.pid_file = pid_file
+
+    w.start = "PORT=#{port} node faye.js"
+
+    w.keepalive(
+      interval: 15.seconds,
+      memory_max: 210.megabytes,
+      cpu_max: 40.percent
+    )
+  end
+}

@@ -1,0 +1,14 @@
+{
+  "name": "node_faye",
+  "version": "1.0.0",
+  "description": "Faye Node Server",
+  "main": "index.js",
+  "author": "ifool <li.fz@ikcrm.com>",
+  "license": "MIT",
+  "dependencies": {
+    "faye": "^1.2.3",
+    "faye-redis": "^0.2.0",
+    "js-yaml": "^3.7.0",
+    "process": "^0.11.9"
+  }
+}
