@@ -1,5 +1,5 @@
 GEM
-  remote: https://gems.ruby-china.org/
+  remote: https://rubygems.org/
   specs:
     airbrussh (1.1.1)
       sshkit (>= 1.6.1, != 1.7.0)
@@ -32,4 +32,4 @@ DEPENDENCIES
   god
 
 BUNDLED WITH
-   1.12.5
+   1.15.3
