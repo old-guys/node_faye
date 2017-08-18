@@ -17,6 +17,8 @@
 
         sudo curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
         sudo yum -y install nodejs
+        # sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+        # sudo yum --enablerepo=remi,remi-test install nodejs npm
         http://nginx.org/en/linux_packages.html
         sudo yum info nginx
         sudo rpm -Uhv 'http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm'
