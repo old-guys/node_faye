@@ -17,6 +17,11 @@ yarn add -D shipit-npm
 ## server setup
 
 ```shell
+sudo curl --silent --location https://rpm.nodesource.com/setup_14.x | bash -
+sudo yum -y install nodejs
+http://nginx.org/en/linux_packages.html
+sudo yum install nginx
+
 npm install pm2 -g
 
 tail -f -n 500 /home/node/.pm2/pm2.log

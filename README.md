@@ -13,10 +13,7 @@
 
 ## Deploy
 
-        sudo curl --silent --location https://rpm.nodesource.com/setup_14.x | bash -
-        sudo yum -y install nodejs
-        http://nginx.org/en/linux_packages.html
-        sudo yum install nginx
+Visit [deploy doc](docs/deploy.md)
 
 ## Monit on Production ENV
 
