@@ -32,6 +32,8 @@ config/redis.yml
 config/newrelic.yml
 config/app.god
 
+pm2.config.js
+
 .idea/
 
 node_modules

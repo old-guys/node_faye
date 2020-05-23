@@ -1,13 +1,10 @@
 upstream node_faye_backend {
   server 127.0.0.1:9991 max_fails=3 fail_timeout=5 weight=10;
-  server 127.0.0.1:9992 max_fails=3 fail_timeout=5 weight=10;
-  server 127.0.0.1:9993 max_fails=3 fail_timeout=5 weight=10;
-  server 127.0.0.1:9994 max_fails=3 fail_timeout=5 weight=10;
 }
 
 server {
   listen 9990 ssl;
-  server_name ikcrm.com e.ikcrm.com faye.ikcrm.com qq.ikcrm.com;
+  server_name faye.xxxxx.com;
 
   ssl                  on;
   ssl_certificate      /usr/local/nginx/config/server.crt;

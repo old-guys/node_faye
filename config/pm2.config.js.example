@@ -1,0 +1,22 @@
+module.exports = {
+  "apps":[
+    {
+      "name": "node_faye_qa",
+      "script": "./faye.js",
+      "args": [],
+      // "node_args": "-r esm",
+      "cwd": process.cwd(),
+      // NODE_APP_INSTANCE (PM2 2.5 minimum)
+      // https://pm2.keymetrics.io/docs/usage/environment/#node_app_instance-pm2-25-minimum
+      "instance_var": 'INSTANCE_ID',
+      instances : -1,
+      exec_mode : "cluster",
+      "error_file": "./log/app-err.log",
+      "out_file": "./log/app-out.log",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "9991"
+      }
+    }
+  ]
+}
