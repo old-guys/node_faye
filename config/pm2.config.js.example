@@ -9,8 +9,9 @@ module.exports = {
       // NODE_APP_INSTANCE (PM2 2.5 minimum)
       // https://pm2.keymetrics.io/docs/usage/environment/#node_app_instance-pm2-25-minimum
       "instance_var": 'INSTANCE_ID',
-      instances : -1,
-      exec_mode : "cluster",
+      // instances : -1,
+      // 集群模式会导致 webscoket 连接失败
+      // exec_mode : "cluster",
       "error_file": "./log/app-err.log",
       "out_file": "./log/app-out.log",
       "env": {
