@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "faye": "^1.2.5",
+    "faye": "^1.4.0",
     "faye-redis": "^0.2.0",
     "js-yaml": "^3.14.0",
     "process": "^0.11.10"
