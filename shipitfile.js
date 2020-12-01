@@ -24,6 +24,10 @@ module.exports = shipit => {
           {
             path: 'pm2.config.js',
             overwrite: false
+          },
+          {
+            path: 'newrelic.js',
+            overwrite: false
           }
         ],
       }

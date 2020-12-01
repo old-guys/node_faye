@@ -7,6 +7,16 @@ const http = require('http'),
   yaml = require('js-yaml'),
   redisFilePath = "config/redis.yml";
 
+// 启动 newrelic 监控
+try {
+  const path = './newrelic.js'
+  if (fs.existsSync(path)) {
+    const newrelic = require('newrelic');
+  }
+} catch (err) {
+  console.error(err)
+}
+
 let engineConf = {};
 
 if ( fs.existsSync(redisFilePath) ) {

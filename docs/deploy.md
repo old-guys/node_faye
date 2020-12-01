@@ -30,6 +30,12 @@ pm2 start pm2.config.js
 pm2 stop pm2.config.js
 pm2 info node_faye_qa
 pm2 delete pm2.config.js
+
+# newrelic
+cp ./node_modules/newrelic/newrelic.js ./
+vim newrelic.js
+  app_name: ['faye.xxxx.com'],
+  license_key: 'xxxxxxxxx',
 ```
 
 ## deploy
